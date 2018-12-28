@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>1787c538-d737-46aa-bedc-6b7cc32caadd</ID>
+  <Name>HPFlights_</Name>
+  <Type>WSDL</Type>
+  <Version>1</Version>
+  <CreationDate>2018-12-28T16:27:20.4476352-06:00</CreationDate>
+  <UpdateDate>2018-12-28T16:27:20.4476352-06:00</UpdateDate>
+  <LoaderID>SignatureResourceHandler</LoaderID>
+  <MetaDataSignatureFile>7133e64a-41b9-4dd7-9f51-f19a34a30b6e.xml</MetaDataSignatureFile>
+  <TestResourceId>7133e64a-41b9-4dd7-9f51-f19a34a30b6e</TestResourceId>
+  <RepositoryType>TestRepository</RepositoryType>
+  <SignatureCodonId>HP.ST.WebServiceWsdl</SignatureCodonId>
+  <SignatureAddinVersion>14.51.1072.0</SignatureAddinVersion>
+  <Properties>
+    <Item>
+      <Key>
+        <string>RepositoryPath</string>
+      </Key>
+      <Value>
+        <string>C:\Users\sercely\Documents\Unified Functional Testing\UFT-340-API-testing\MyFavoriteCustomer\EmbeddedResources</string>
+      </Value>
+    </Item>
+    <Item>
+      <Key>
+        <string>ResourceOrigin</string>
+      </Key>
+      <Value>
+        <string>C:\Users\sercely\Documents\Unified Functional Testing\UFT-340-API-testing\MyFavoriteCustomer\EmbeddedResources\HPFlights_</string>
+      </Value>
+    </Item>
+    <Item>
+      <Key>
+        <string>PrototypeDbVersion</string>
+      </Key>
+      <Value>
+        <string>14.51.1072.0</string>
+      </Value>
+    </Item>
+  </Properties>
+</ResourceManifest>
