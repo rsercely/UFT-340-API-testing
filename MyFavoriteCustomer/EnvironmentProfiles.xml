@@ -32,13 +32,13 @@
     <VarName>TestDir</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>C:\Users\sercely\Documents\Unified Functional Testing\UFT-340-API-testing\MyFavoriteCustomer</SystemProfile>
+    <SystemProfile />
   </Profiles>
   <Profiles>
     <VarName>TestName</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>MyFavoriteCustomer</SystemProfile>
+    <SystemProfile />
   </Profiles>
   <Profiles>
     <VarName>LocalHostName</VarName>
@@ -86,7 +86,7 @@
     <VarName>CurrentDate</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>12/28/2018 4:34:23 PM</SystemProfile>
+    <SystemProfile>12/28/2018 4:39:16 PM</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>QcUrl</VarName>
