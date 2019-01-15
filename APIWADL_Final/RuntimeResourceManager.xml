@@ -1,0 +1,4 @@
+<RuntimeResourceManager>
+<RuntimeResource><Key>{Step.GeneralProperties.CallSTTest4.ScriptPath}</Key><Path>C:\Users\sercely\Documents\Unified Functional Testing\UFT-340-API-testing\APIWADL_GetFlights</Path><Value>..\APIWADL_GetFlights</Value><AddinId>DefaultDependencyResolver</AddinId></RuntimeResource>
+<RuntimeResource><Key>{Step.GeneralProperties.CallSTTest5.ScriptPath}</Key><Path>C:\Users\sercely\Documents\Unified Functional Testing\UFT-340-API-testing\APIWADL_BookFlight</Path><Value>..\APIWADL_BookFlight</Value><AddinId>DefaultDependencyResolver</AddinId></RuntimeResource>
+</RuntimeResourceManager>
