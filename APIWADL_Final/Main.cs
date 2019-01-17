@@ -46,10 +46,9 @@
     	int reportLevelInTree;
         HP.ST.Fwk.ReportCreator.QTPEngine.QTPEngineReportCreator reportCreator;
     	
-    	public BindDirection bind_dir36 = null;
-        public BindDirection bind_dir37 = null;
-        public BindDirection bind_dir38 = null;
-        public BindDirection bind_dir39 = null;
+    	public BindDirection bind_dir13 = null;
+        public BindDirection bind_dir14 = null;
+        public BindDirection bind_dir15 = null;
         
         public IEnumerable<FeaturesGroup> LicensedFeatures
         {
@@ -98,8 +97,6 @@
             _flow.EndActivity3 = new HP.ST.Ext.BasicActivities.EndActivity(_context,"EndActivity3");
             _flow.Sequence11 = new HP.ST.Fwk.RunTimeFWK.CompositeActivities.Sequence(_context,"Sequence11");
             _flow.CallSTTest4 = new HP.ST.Ext.STRunnerActivity.RunSTActivity(_context,"CallSTTest4",false);
-            _flow.SetTestVariableActivity6 = new HP.ST.Ext.BasicActivities.SetTestVariableActivity(_context,"SetTestVariableActivity6");
-            _flow.ReportMessageActivity7 = new HP.ST.Ext.BasicActivities.ReportMessageActivity(_context,"ReportMessageActivity7");
             _flow.CallSTTest5 = new HP.ST.Ext.STRunnerActivity.RunSTActivity(_context,"CallSTTest5",false);
             _flow.ConcatenateStringsActivity10 = new HP.ST.Ext.BasicActivities.ConcatenateStringsActivity(_context,"ConcatenateStringsActivity10");
             _flow.ReportMessageActivity9 = new HP.ST.Ext.BasicActivities.ReportMessageActivity(_context,"ReportMessageActivity9");
@@ -142,40 +139,24 @@
             _flow.Sequence11.IconPath = @"";
             _flow.Sequence11.Name = @"Sequence11";
             _flow.Sequence11.Activities.Add (_flow.CallSTTest4);
-            _flow.Sequence11.Activities.Add (_flow.SetTestVariableActivity6);
-            _flow.Sequence11.Activities.Add (_flow.ReportMessageActivity7);
             _flow.Sequence11.Activities.Add (_flow.CallSTTest5);
             _flow.Sequence11.Activities.Add (_flow.ConcatenateStringsActivity10);
             _flow.Sequence11.Activities.Add (_flow.ReportMessageActivity9);
+            XmlDocument CallSTTest4_InputProperties_Document = new XmlDocument();
+            CallSTTest4_InputProperties_Document.PreserveWhitespace = true;
+            CallSTTest4_InputProperties_Document.LoadXml(
+@"<Arguments><GetFlightsTestInputParam /></Arguments>");
+            _flow.CallSTTest4.InputProperties = CallSTTest4_InputProperties_Document;
             _flow.CallSTTest4.Comment = @"";
             _flow.CallSTTest4.IconPath = @"AddIns\ServiceTest\STRunner\ictb_api_test_16x16.png";
             _flow.CallSTTest4.Name = @"APIWADL_GetFlights";
             _flow.CallSTTest4.ScriptPath = String.IsNullOrEmpty(_context.ResourceManager.GetValue(@"{Step.GeneralProperties.CallSTTest4.ScriptPath}")) ? @"..\APIWADL_GetFlights" : _context.ResourceManager.GetValue(@"{Step.GeneralProperties.CallSTTest4.ScriptPath}");
             _flow.CallSTTest4.ActionName = @"";
             _flow.CallSTTest4.ResultLocation = @"RunStReport\";
-            _flow.SetTestVariableActivity6.VariableKey = @"DriverFlightNo";
-            _flow.SetTestVariableActivity6.VariableValue = @"20279";
-            _flow.SetTestVariableActivity6.Comment = @"";
-            _flow.SetTestVariableActivity6.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_setenv.png";
-            _flow.SetTestVariableActivity6.Name = @"Set Test Variable6";
-            _flow.SetTestVariableActivity6.AfterExecuteStepEvent += _userCode.SetTestVariableActivity6_OnAfterExecuteStepEvent;
-            _flow.ReportMessageActivity7.Status = @"Done";
-            _flow.ReportMessageActivity7.Message = @"{ENV:DriverFlightNo}";
-            _flow.ReportMessageActivity7.Destination = @"ReportAndOutput";
-            _flow.ReportMessageActivity7.Comment = @"";
-            _flow.ReportMessageActivity7.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_report_message.png";
-            _flow.ReportMessageActivity7.Name = @"Report Message7";
-            VTDPropertyInfoBase pi71 = new VTDPropertyInfoBase("DriverFlightNo");
-            VTDBaseGetter binding_getter36 = new EnvironmentVariableGetter(pi71);
-            VTDPropertyInfoBase pi72 = new VTDPropertyInfoBase("Message");
-            VTDBaseSetter binding_setter36 = new VTDObjectSetter(pi72);
-            binding_setter36 = new StringFormaterDecorator(binding_setter36,"{ENV:DriverFlightNo}");
-            bind_dir36 = new BindDirection(_flow.StartActivity1,binding_getter36,binding_setter36,BindTargetType.ToInProperty);
-            _flow.ReportMessageActivity7.InDirections.Add(bind_dir36);
             XmlDocument CallSTTest5_InputProperties_Document = new XmlDocument();
             CallSTTest5_InputProperties_Document.PreserveWhitespace = true;
             CallSTTest5_InputProperties_Document.LoadXml(
-@"<Arguments><BookFlight_TestOutParam_FlightNo>{ENV:DriverFlightNo}</BookFlight_TestOutParam_FlightNo></Arguments>");
+@"<Arguments><BookFlight_TestOutParam_FlightNo>{Step.OutputProperties.CallSTTest4.GetFlights_OutputParam_FlightNo}</BookFlight_TestOutParam_FlightNo></Arguments>");
             _flow.CallSTTest5.InputProperties = CallSTTest5_InputProperties_Document;
             _flow.CallSTTest5.Comment = @"";
             _flow.CallSTTest5.IconPath = @"AddIns\ServiceTest\STRunner\ictb_api_test_16x16.png";
@@ -183,37 +164,37 @@
             _flow.CallSTTest5.ScriptPath = String.IsNullOrEmpty(_context.ResourceManager.GetValue(@"{Step.GeneralProperties.CallSTTest5.ScriptPath}")) ? @"..\APIWADL_BookFlight" : _context.ResourceManager.GetValue(@"{Step.GeneralProperties.CallSTTest5.ScriptPath}");
             _flow.CallSTTest5.ActionName = @"";
             _flow.CallSTTest5.ResultLocation = @"RunStReport\";
-            VTDPropertyInfoBase pi73 = new VTDPropertyInfoBase("DriverFlightNo");
-            VTDBaseGetter binding_getter37 = new EnvironmentVariableGetter(pi73);
-            VTDPropertyInfoBase pi74 = new VTDPropertyInfoBase("InputProperties","/*[local-name(.)='Arguments'][1]/*[local-name(.)='BookFlight_TestOutParam_FlightNo'][1]");
-            VTDBaseSetter binding_setter37 = new VTDXPathSetter(pi74,XmlTypeCode.Int);
-            bind_dir37 = new BindDirection(_flow.StartActivity1,binding_getter37,binding_setter37,BindTargetType.ToInProperty);
-            _flow.CallSTTest5.InDirections.Add(bind_dir37);
+            VTDPropertyInfoBase pi25 = new VTDPropertyInfoBase("OutputProperties","/*[local-name(.)='Arguments'][1]/*[local-name(.)='GetFlights_OutputParam_FlightNo'][1]");
+            VTDBaseGetter binding_getter13 = new VTDXPathGetter(pi25,XmlTypeCode.Int);
+            VTDPropertyInfoBase pi26 = new VTDPropertyInfoBase("InputProperties","/*[local-name(.)='Arguments'][1]/*[local-name(.)='BookFlight_TestOutParam_FlightNo'][1]");
+            VTDBaseSetter binding_setter13 = new VTDXPathSetter(pi26,XmlTypeCode.Int);
+            bind_dir13 = new BindDirection(_flow.CallSTTest4,binding_getter13,binding_setter13,BindTargetType.ToInProperty);
+            _flow.CallSTTest5.InDirections.Add(bind_dir13);
             _flow.ConcatenateStringsActivity10.Prefix = @"Newly created order is: ";
             _flow.ConcatenateStringsActivity10.Suffix = @"{Step.OutputProperties.CallSTTest5.BookFlight_TestOutParam_ReservationNo}";
             _flow.ConcatenateStringsActivity10.Comment = @"";
             _flow.ConcatenateStringsActivity10.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_concat.png";
             _flow.ConcatenateStringsActivity10.Name = @"Concatenate Strings10";
-            VTDPropertyInfoBase pi75 = new VTDPropertyInfoBase("OutputProperties","/*[local-name(.)='Arguments'][1]/*[local-name(.)='BookFlight_TestOutParam_ReservationNo'][1]");
-            VTDBaseGetter binding_getter38 = new VTDXPathGetter(pi75,XmlTypeCode.String);
-            VTDPropertyInfoBase pi76 = new VTDPropertyInfoBase("Suffix");
-            VTDBaseSetter binding_setter38 = new VTDObjectSetter(pi76);
-            binding_setter38 = new StringFormaterDecorator(binding_setter38,"{Step.OutputProperties.CallSTTest5.BookFlight_TestOutParam_ReservationNo}");
-            bind_dir38 = new BindDirection(_flow.CallSTTest5,binding_getter38,binding_setter38,BindTargetType.ToInProperty);
-            _flow.ConcatenateStringsActivity10.InDirections.Add(bind_dir38);
+            VTDPropertyInfoBase pi27 = new VTDPropertyInfoBase("OutputProperties","/*[local-name(.)='Arguments'][1]/*[local-name(.)='BookFlight_TestOutParam_ReservationNo'][1]");
+            VTDBaseGetter binding_getter14 = new VTDXPathGetter(pi27,XmlTypeCode.String);
+            VTDPropertyInfoBase pi28 = new VTDPropertyInfoBase("Suffix");
+            VTDBaseSetter binding_setter14 = new VTDObjectSetter(pi28);
+            binding_setter14 = new StringFormaterDecorator(binding_setter14,"{Step.OutputProperties.CallSTTest5.BookFlight_TestOutParam_ReservationNo}");
+            bind_dir14 = new BindDirection(_flow.CallSTTest5,binding_getter14,binding_setter14,BindTargetType.ToInProperty);
+            _flow.ConcatenateStringsActivity10.InDirections.Add(bind_dir14);
             _flow.ReportMessageActivity9.Status = @"Done";
             _flow.ReportMessageActivity9.Message = @"{Step.OutputProperties.ConcatenateStringsActivity10.Result}";
             _flow.ReportMessageActivity9.Destination = @"ReportAndOutput";
             _flow.ReportMessageActivity9.Comment = @"";
             _flow.ReportMessageActivity9.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_report_message.png";
             _flow.ReportMessageActivity9.Name = @"Report Message9";
-            VTDPropertyInfoBase pi77 = new VTDPropertyInfoBase("Result");
-            VTDBaseGetter binding_getter39 = new VTDObjectGetter(pi77);
-            VTDPropertyInfoBase pi78 = new VTDPropertyInfoBase("Message");
-            VTDBaseSetter binding_setter39 = new VTDObjectSetter(pi78);
-            binding_setter39 = new StringFormaterDecorator(binding_setter39,"{Step.OutputProperties.ConcatenateStringsActivity10.Result}");
-            bind_dir39 = new BindDirection(_flow.ConcatenateStringsActivity10,binding_getter39,binding_setter39,BindTargetType.ToInProperty);
-            _flow.ReportMessageActivity9.InDirections.Add(bind_dir39);
+            VTDPropertyInfoBase pi29 = new VTDPropertyInfoBase("Result");
+            VTDBaseGetter binding_getter15 = new VTDObjectGetter(pi29);
+            VTDPropertyInfoBase pi30 = new VTDPropertyInfoBase("Message");
+            VTDBaseSetter binding_setter15 = new VTDObjectSetter(pi30);
+            binding_setter15 = new StringFormaterDecorator(binding_setter15,"{Step.OutputProperties.ConcatenateStringsActivity10.Result}");
+            bind_dir15 = new BindDirection(_flow.ConcatenateStringsActivity10,binding_getter15,binding_setter15,BindTargetType.ToInProperty);
+            _flow.ReportMessageActivity9.InDirections.Add(bind_dir15);
             
         }
         

@@ -23,8 +23,6 @@ using System;
     public HP.ST.Ext.BasicActivities.EndActivity EndActivity3 = null;
     public HP.ST.Fwk.RunTimeFWK.CompositeActivities.Sequence Sequence11 = null;
     public HP.ST.Ext.STRunnerActivity.RunSTActivity CallSTTest4 = null;
-    public HP.ST.Ext.BasicActivities.SetTestVariableActivity SetTestVariableActivity6 = null;
-    public HP.ST.Ext.BasicActivities.ReportMessageActivity ReportMessageActivity7 = null;
     public HP.ST.Ext.STRunnerActivity.RunSTActivity CallSTTest5 = null;
     public HP.ST.Ext.BasicActivities.ConcatenateStringsActivity ConcatenateStringsActivity10 = null;
     public HP.ST.Ext.BasicActivities.ReportMessageActivity ReportMessageActivity9 = null;
