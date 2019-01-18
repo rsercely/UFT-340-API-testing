@@ -21,7 +21,11 @@ using System;
     public HP.ST.Ext.BasicActivities.StartActivity StartActivity1 = null;
     public HP.ST.Fwk.RunTimeFWK.CompositeActivities.Loop<Loop2Input> Loop2 = null;
     public HP.ST.Ext.BasicActivities.EndActivity EndActivity3 = null;
-    public HP.ST.Fwk.RunTimeFWK.CompositeActivities.Sequence Sequence4 = null;
+    public HP.ST.Fwk.RunTimeFWK.CompositeActivities.Sequence Sequence8 = null;
+    public HP.ST.Ext.STRunnerActivity.RunSTActivity CallSTTest4 = null;
+    public HP.ST.Ext.STRunnerActivity.RunSTActivity CallSTTest5 = null;
+    public HP.ST.Ext.BasicActivities.ConcatenateStringsActivity ConcatenateStringsActivity7 = null;
+    public HP.ST.Ext.BasicActivities.ReportMessageActivity ReportMessageActivity6 = null;
     
     }
     

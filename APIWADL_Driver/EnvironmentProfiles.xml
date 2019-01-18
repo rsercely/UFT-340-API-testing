@@ -32,13 +32,13 @@
     <VarName>TestDir</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>C:\Users\sercely\Documents\Unified Functional Testing\UFT-340-API-testing\APIWADL_Final</SystemProfile>
+    <SystemProfile>C:\Users\sercely\Documents\Unified Functional Testing\UFT-340-API-testing\APIWADL_Driver</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>TestName</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>APIWADL_Final</SystemProfile>
+    <SystemProfile>APIWADL_Driver</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>LocalHostName</VarName>
@@ -86,7 +86,7 @@
     <VarName>CurrentDate</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>1/16/2019 12:04:17 PM</SystemProfile>
+    <SystemProfile>1/17/2019 4:55:50 PM</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>QcUrl</VarName>
@@ -141,17 +141,5 @@
     <IsSystem>true</IsSystem>
     <Description />
     <SystemProfile />
-  </Profiles>
-  <Profiles>
-    <VarName>DriverFlightNo</VarName>
-    <IsSystem>false</IsSystem>
-    <Description />
-    <Profile1 />
-  </Profiles>
-  <Profiles>
-    <VarName>DriverOrderNo</VarName>
-    <IsSystem>false</IsSystem>
-    <Description />
-    <Profile1 />
   </Profiles>
 </NewDataSet></Table><ActiveProfile>Profile1</ActiveProfile></EnvironmentProfiles>

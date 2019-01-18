@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
-    <ProjectGuid>{DE82162B-3C5E-4055-8858-2F55ADFFCC89}</ProjectGuid>
+    <ProjectGuid>{7F31CCC2-0A95-4F05-BBD4-0F5C3CFC8B13}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>APIWADL_Final</RootNamespace>
+    <RootNamespace>APIWADL_Driver</RootNamespace>
     <AssemblyName>Script</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ReferencePath>
@@ -112,7 +112,7 @@ $(ST_INSTALL_PATH)\AddIns\ServiceTest\STRunner;</ReferencePath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="APIWADL_Final.st" />
+    <None Include="APIWADL_Driver.st" />
     <None Include="flow.png" />
     <None Include="Log\vtd_log.config" />
   </ItemGroup>

@@ -46,8 +46,8 @@
     	int reportLevelInTree;
         HP.ST.Fwk.ReportCreator.QTPEngine.QTPEngineReportCreator reportCreator;
     	
-    	public BindDirection bind_dir26 = null;
-        public BindDirection bind_dir27 = null;
+    	public BindDirection bind_dir13 = null;
+        public BindDirection bind_dir14 = null;
         
         public IEnumerable<FeaturesGroup> LicensedFeatures
         {
@@ -94,12 +94,12 @@
         	_flow.StartActivity1 = new HP.ST.Ext.BasicActivities.StartActivity(_context,"StartActivity1");
             _flow.Loop2 = new HP.ST.Fwk.RunTimeFWK.CompositeActivities.Loop<Loop2Input>(_context,"Loop2",LoopType.For);
             _flow.EndActivity3 = new HP.ST.Ext.BasicActivities.EndActivity(_context,"EndActivity3");
-            _flow.Sequence5 = new HP.ST.Fwk.RunTimeFWK.CompositeActivities.Sequence(_context,"Sequence5");
-            _flow.RESTActivityV24 = new HP.ST.Ext.RestActivity.RESTActivityV2<RESTActivityV24Input,RESTActivityV24Output>(_context,"RESTActivityV24");
+            _flow.Sequence7 = new HP.ST.Fwk.RunTimeFWK.CompositeActivities.Sequence(_context,"Sequence7");
+            _flow.RESTActivityV26 = new HP.ST.Ext.RestActivity.RESTActivityV2<RESTActivityV26Input,RESTActivityV26Output>(_context,"RESTActivityV26");
             XmlDocument StartActivity1_ExecutionInputParameters_Document = new XmlDocument();
             StartActivity1_ExecutionInputParameters_Document.PreserveWhitespace = true;
             StartActivity1_ExecutionInputParameters_Document.LoadXml(
-@"<Arguments><BookFlight_TestOutParam_FlightNo>{ENV:FlightNo_UserVar}</BookFlight_TestOutParam_FlightNo></Arguments>");
+@"<Arguments><FlightNo>0</FlightNo></Arguments>");
             _flow.StartActivity1.ExecutionInputParameters = StartActivity1_ExecutionInputParameters_Document;
             _flow.StartActivity1.Comment = @"";
             _flow.StartActivity1.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_code_activity.png";
@@ -125,110 +125,103 @@
             _flow.Loop2.Comment = @"";
             _flow.Loop2.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_loop.png";
             _flow.Loop2.Name = @"Test Flow";
-            _flow.Loop2.Activities.Add (_flow.Sequence5);
+            _flow.Loop2.Activities.Add (_flow.Sequence7);
             this.Activities.Add (_flow.Loop2);
             XmlDocument EndActivity3_ExecutionOutputParameters_Document = new XmlDocument();
             EndActivity3_ExecutionOutputParameters_Document.PreserveWhitespace = true;
             EndActivity3_ExecutionOutputParameters_Document.LoadXml(
-@"<Arguments><BookFlight_TestOutParam_ReservationNo>{ENV:OrderNo_UserVar}</BookFlight_TestOutParam_ReservationNo></Arguments>");
+@"<Arguments><OrderNo>{Step.ResponseXmlBody.RESTActivityV26.OrderNumber}</OrderNo></Arguments>");
             _flow.EndActivity3.ExecutionOutputParameters = EndActivity3_ExecutionOutputParameters_Document;
             _flow.EndActivity3.Comment = @"";
             _flow.EndActivity3.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_code_activity.png";
             _flow.EndActivity3.Name = @"End";
-            VTDPropertyInfoBase pi51 = new VTDPropertyInfoBase("OrderNo_UserVar");
-            VTDBaseGetter binding_getter26 = new EnvironmentVariableGetter(pi51);
-            VTDPropertyInfoBase pi52 = new VTDPropertyInfoBase("ExecutionOutputParameters","/*[local-name(.)='Arguments'][1]/*[local-name(.)='BookFlight_TestOutParam_ReservationNo'][1]");
-            VTDBaseSetter binding_setter26 = new VTDXPathSetter(pi52,XmlTypeCode.String);
-            binding_setter26 = new StringFormaterDecorator(binding_setter26,"{ENV:OrderNo_UserVar}");
-            bind_dir26 = new BindDirection(_flow.StartActivity1,binding_getter26,binding_setter26,BindTargetType.ToInProperty);
-            _flow.EndActivity3.InDirections.Add(bind_dir26);
+            VTDPropertyInfoBase pi25 = new VTDPropertyInfoBase("XMLResponse","/*[local-name(.)='CreatedOrderParams'][1]/*[local-name(.)='OrderNumber'][1]");
+            VTDBaseGetter binding_getter13 = new VTDXPathGetter(pi25,XmlTypeCode.UnsignedByte);
+            VTDPropertyInfoBase pi26 = new VTDPropertyInfoBase("ExecutionOutputParameters","/*[local-name(.)='Arguments'][1]/*[local-name(.)='OrderNo'][1]");
+            VTDBaseSetter binding_setter13 = new VTDXPathSetter(pi26,XmlTypeCode.String);
+            binding_setter13 = new StringFormaterDecorator(binding_setter13,"{Step.ResponseXmlBody.RESTActivityV26.OrderNumber}");
+            bind_dir13 = new BindDirection(_flow.RESTActivityV26,binding_getter13,binding_setter13,BindTargetType.ToInProperty);
+            _flow.EndActivity3.InDirections.Add(bind_dir13);
             this.Activities.Add (_flow.EndActivity3);
-            _flow.Sequence5.Comment = @"";
-            _flow.Sequence5.IconPath = @"";
-            _flow.Sequence5.Name = @"Sequence5";
-            _flow.Sequence5.Activities.Add (_flow.RESTActivityV24);
-            _flow.RESTActivityV24.TextBody = @"";
-            _flow.RESTActivityV24.TextXmlBody = @"";
-            _flow.RESTActivityV24.FileBody = @"";
-            _flow.RESTActivityV24.PostBody = @"";
-            _flow.RESTActivityV24.Url = @"http://localhost:8000/HPFlights_REST/FlightOrders";
-            _flow.RESTActivityV24.HttpMethod = @"POST";
-            _flow.RESTActivityV24.HttpVersion = @"1.1";
-            _flow.RESTActivityV24.RequestHeaders = new Pair<string, string>[1];
-            _flow.RESTActivityV24.RequestHeaders[0] = new Pair<string, string>();
-            _flow.RESTActivityV24.RequestHeaders[0].Key = @"Content-Type";
-            _flow.RESTActivityV24.RequestHeaders[0].Value = @"text/xml";
-            _flow.RESTActivityV24.Comment = @"";
-            _flow.RESTActivityV24.IconPath = @"AddIns\ServiceTest\REST\ictb_REST_Method_16.png";
-            _flow.RESTActivityV24.RequestBodyType = @"Xml";
-            _flow.RESTActivityV24.ResponseType = @"Xml";
-            _flow.RESTActivityV24.Name = @"ReserveOrder4";
-            _flow.RESTActivityV24.Proxy.Server = @"";
-            _flow.RESTActivityV24.Proxy.Username = @"";
-            _flow.RESTActivityV24.Proxy.Password = @"";
-            _flow.RESTActivityV24.Authentication.Username = @"";
-            _flow.RESTActivityV24.Authentication.Password = @"";
-            _flow.RESTActivityV24.Authentication.PreemptiveAuthentication = false;
-            _flow.RESTActivityV24.ConnectionType = @"Keep-Alive";
-            _flow.RESTActivityV24.Timeout = (int)100000;
-            _flow.RESTActivityV24.ClientCertificate.Password = @"";
-            _flow.RESTActivityV24.ClientCertificate.FileSystem.Path = @"";
-            _flow.RESTActivityV24.UseClientCertificate = false;
-            _flow.RESTActivityV24.MaximumAutomaticRedirections = (int)3;
-            _flow.RESTActivityV24.AllowRedirections = true;
-            _flow.RESTActivityV24.ReuseCookies = false;
-            _flow.RESTActivityV24.ExpectServerError = false;
-            _flow.RESTActivityV24.HanaRequest = false;
-            XmlDocument RESTActivityV24_XMLBody_Document = new XmlDocument();
-            RESTActivityV24_XMLBody_Document.PreserveWhitespace = true;
-            RESTActivityV24_XMLBody_Document.LoadXml(
-@"<?xml version=""1.0"" encoding=""utf-8""?>
-<FlightOrderDetails xmlns=""HP.SOAQ.SampleApp"">
- <Class>Business</Class>
- <CustomerName>John Doe</CustomerName>
- <DepartureDate>2022-12-12</DepartureDate>
- <FlightNumber>{Step.OutputProperties.StartActivity1.BookFlight_TestOutParam_FlightNo}</FlightNumber>
- <NumberOfTickets>21</NumberOfTickets>
-</FlightOrderDetails>");
-            _flow.RESTActivityV24.XMLBody = RESTActivityV24_XMLBody_Document;
-            XmlDocument RESTActivityV24_RequestMultipartInfoXml_Document = new XmlDocument();
-            RESTActivityV24_RequestMultipartInfoXml_Document.PreserveWhitespace = true;
-            RESTActivityV24_RequestMultipartInfoXml_Document.LoadXml(
-@"<RequestMultipartInfo><Type>Related</Type></RequestMultipartInfo>");
-            _flow.RESTActivityV24.RequestMultipartInfoXml = RESTActivityV24_RequestMultipartInfoXml_Document;
-            _flow.RESTActivityV24.Multipart=false;
-            VTDPropertyInfoBase pi53 = new VTDPropertyInfoBase("ExecutionInputParameters","/*[local-name(.)='Arguments'][1]/*[local-name(.)='BookFlight_TestOutParam_FlightNo'][1]");
-            VTDBaseGetter binding_getter27 = new VTDXPathGetter(pi53,XmlTypeCode.Int);
-            VTDPropertyInfoBase pi54 = new VTDPropertyInfoBase("XMLBody","/*[local-name(.)='FlightOrderDetails'][1]/*[local-name(.)='FlightNumber'][1]");
-            VTDBaseSetter binding_setter27 = new VTDXPathSetter(pi54,XmlTypeCode.UnsignedShort);
-            bind_dir27 = new BindDirection(_flow.StartActivity1,binding_getter27,binding_setter27,BindTargetType.ToInProperty);
-            _flow.RESTActivityV24.InDirections.Add(bind_dir27);
-            XmlDocument RESTActivityV24_ExpectedResponseXmlBody_Document = new XmlDocument();
-            RESTActivityV24_ExpectedResponseXmlBody_Document.PreserveWhitespace = true;
-            RESTActivityV24_ExpectedResponseXmlBody_Document.LoadXml(
-@"<ArrayOfFlight xmlns=""HP.SOAQ.SampleApp"" xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"">
- <Flight>
-   <Airlines>AA</Airlines>
-   <ArrivalCity>Denver</ArrivalCity> 
-   <ArrivalTime>01:23 PM</ArrivalTime> 
-   <DepartureCity>London</DepartureCity> 
-   <DepartureTime>06:12 AM</DepartureTime> 
-   <FlightNumber>20279</FlightNumber> 
-   <Price>112.2</Price>
- </Flight>
-</ArrayOfFlight>
+            _flow.Sequence7.Comment = @"";
+            _flow.Sequence7.IconPath = @"";
+            _flow.Sequence7.Name = @"Sequence7";
+            _flow.Sequence7.Activities.Add (_flow.RESTActivityV26);
+            _flow.RESTActivityV26.TextBody = @"";
+            _flow.RESTActivityV26.TextXmlBody = @"";
+            _flow.RESTActivityV26.FileBody = @"";
+            _flow.RESTActivityV26.PostBody = @"";
+            _flow.RESTActivityV26.Url = @"http://localhost:8000/HPFlights_REST/FlightOrders";
+            _flow.RESTActivityV26.HttpMethod = @"POST";
+            _flow.RESTActivityV26.HttpVersion = @"1.1";
+            _flow.RESTActivityV26.RequestHeaders = new Pair<string, string>[1];
+            _flow.RESTActivityV26.RequestHeaders[0] = new Pair<string, string>();
+            _flow.RESTActivityV26.RequestHeaders[0].Key = @"Content-Type";
+            _flow.RESTActivityV26.RequestHeaders[0].Value = @"text/xml";
+            _flow.RESTActivityV26.Comment = @"";
+            _flow.RESTActivityV26.IconPath = @"AddIns\ServiceTest\REST\ictb_REST_Method_16.png";
+            _flow.RESTActivityV26.RequestBodyType = @"Xml";
+            _flow.RESTActivityV26.ResponseType = @"Xml";
+            _flow.RESTActivityV26.Name = @"ReserveOrder6";
+            _flow.RESTActivityV26.Proxy.Server = @"";
+            _flow.RESTActivityV26.Proxy.Username = @"";
+            _flow.RESTActivityV26.Proxy.Password = @"";
+            _flow.RESTActivityV26.Authentication.Username = @"";
+            _flow.RESTActivityV26.Authentication.Password = @"";
+            _flow.RESTActivityV26.Authentication.PreemptiveAuthentication = false;
+            _flow.RESTActivityV26.ConnectionType = @"Keep-Alive";
+            _flow.RESTActivityV26.Timeout = (int)100000;
+            _flow.RESTActivityV26.ClientCertificate.Password = @"";
+            _flow.RESTActivityV26.ClientCertificate.FileSystem.Path = @"";
+            _flow.RESTActivityV26.UseClientCertificate = false;
+            _flow.RESTActivityV26.MaximumAutomaticRedirections = (int)3;
+            _flow.RESTActivityV26.AllowRedirections = true;
+            _flow.RESTActivityV26.ReuseCookies = false;
+            _flow.RESTActivityV26.ExpectServerError = false;
+            _flow.RESTActivityV26.HanaRequest = false;
+            XmlDocument RESTActivityV26_XMLBody_Document = new XmlDocument();
+            RESTActivityV26_XMLBody_Document.PreserveWhitespace = true;
+            RESTActivityV26_XMLBody_Document.LoadXml(
+@"<FlightOrderDetails xmlns=""HP.SOAQ.SampleApp"">
+  <Class>Business</Class>
+  <CustomerName>John Doe</CustomerName>
+  <DepartureDate>2111-12-11</DepartureDate>
+  <FlightNumber>{Step.OutputProperties.StartActivity1.FlightNo}</FlightNumber>
+  <NumberOfTickets>21</NumberOfTickets>
+  </FlightOrderDetails>
+ 
 ");
-            _flow.RESTActivityV24.ExpectedResponseXmlBody = RESTActivityV24_ExpectedResponseXmlBody_Document;
-            XmlDocument RESTActivityV24_ExpectedResponseJsonBody_Document = new XmlDocument();
-            RESTActivityV24_ExpectedResponseJsonBody_Document.PreserveWhitespace = true;
-            RESTActivityV24_ExpectedResponseJsonBody_Document.LoadXml(
+            _flow.RESTActivityV26.XMLBody = RESTActivityV26_XMLBody_Document;
+            XmlDocument RESTActivityV26_RequestMultipartInfoXml_Document = new XmlDocument();
+            RESTActivityV26_RequestMultipartInfoXml_Document.PreserveWhitespace = true;
+            RESTActivityV26_RequestMultipartInfoXml_Document.LoadXml(
+@"<RequestMultipartInfo><Type>Related</Type></RequestMultipartInfo>");
+            _flow.RESTActivityV26.RequestMultipartInfoXml = RESTActivityV26_RequestMultipartInfoXml_Document;
+            _flow.RESTActivityV26.Multipart=false;
+            VTDPropertyInfoBase pi27 = new VTDPropertyInfoBase("ExecutionInputParameters","/*[local-name(.)='Arguments'][1]/*[local-name(.)='FlightNo'][1]");
+            VTDBaseGetter binding_getter14 = new VTDXPathGetter(pi27,XmlTypeCode.Int);
+            VTDPropertyInfoBase pi28 = new VTDPropertyInfoBase("XMLBody","/*[local-name(.)='FlightOrderDetails'][1]/*[local-name(.)='FlightNumber'][1]");
+            VTDBaseSetter binding_setter14 = new VTDXPathSetter(pi28,XmlTypeCode.UnsignedShort);
+            bind_dir14 = new BindDirection(_flow.StartActivity1,binding_getter14,binding_setter14,BindTargetType.ToInProperty);
+            _flow.RESTActivityV26.InDirections.Add(bind_dir14);
+            XmlDocument RESTActivityV26_ExpectedResponseXmlBody_Document = new XmlDocument();
+            RESTActivityV26_ExpectedResponseXmlBody_Document.PreserveWhitespace = true;
+            RESTActivityV26_ExpectedResponseXmlBody_Document.LoadXml(
+@"<CreatedOrderParams xmlns=""HP.SOAQ.SampleApp"" xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"">
+  <OrderNumber>157</OrderNumber>
+  <TotalPrice>7207.2</TotalPrice>
+</CreatedOrderParams>");
+            _flow.RESTActivityV26.ExpectedResponseXmlBody = RESTActivityV26_ExpectedResponseXmlBody_Document;
+            XmlDocument RESTActivityV26_ExpectedResponseJsonBody_Document = new XmlDocument();
+            RESTActivityV26_ExpectedResponseJsonBody_Document.PreserveWhitespace = true;
+            RESTActivityV26_ExpectedResponseJsonBody_Document.LoadXml(
 @"<F6DA54ED-92F5-4c5c-9795-170905F25080 />");
-            _flow.RESTActivityV24.ExpectedResponseJsonBody = RESTActivityV24_ExpectedResponseJsonBody_Document;
-            XmlDocument RESTActivityV24_ExpectedOutputProperties_Document = new XmlDocument();
-            RESTActivityV24_ExpectedOutputProperties_Document.PreserveWhitespace = true;
-            RESTActivityV24_ExpectedOutputProperties_Document.LoadXml(
+            _flow.RESTActivityV26.ExpectedResponseJsonBody = RESTActivityV26_ExpectedResponseJsonBody_Document;
+            XmlDocument RESTActivityV26_ExpectedOutputProperties_Document = new XmlDocument();
+            RESTActivityV26_ExpectedOutputProperties_Document.PreserveWhitespace = true;
+            RESTActivityV26_ExpectedOutputProperties_Document.LoadXml(
 @"<Arguments><ResponseHttpVersion></ResponseHttpVersion><StatusCode></StatusCode><StatusDescription></StatusDescription><ResponseBody></ResponseBody><ResponseBodyAsBase64></ResponseBodyAsBase64></Arguments>");
-            _flow.RESTActivityV24.ExpectedOutputProperties = RESTActivityV24_ExpectedOutputProperties_Document;
+            _flow.RESTActivityV26.ExpectedOutputProperties = RESTActivityV26_ExpectedOutputProperties_Document;
             
         }
         
